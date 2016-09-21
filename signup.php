@@ -3,48 +3,39 @@
 	//echo "<br>";
 	//var_dump($_POST);
 	
-	$firstnameError= "";
+	$FirstnameError= "";
 	
 	//kas on üldse olemas
-	if (isset ($_POST["firstname"])) {
+	if (isset ($_POST["Firstname"])) {
 		
 		// oli olemas, ehk keegi vajutas nuppu
 		//kas oli tühi
-		if (empty ($_POST["firstname"])) {
+		if (empty ($_POST["Firstname"])) {
 			
 			//oli tõesti tühi
-			$firstnameError = "See väli on kohustuslik";
+			$FirstnameError = "See väli on kohustuslik";
 			
 		}
 	
 	}
 	
-	$signupPasswordError = "";
+	$LastnameError = "";
 	
 	//kas on üldse olemas
-	if (isset ($_POST["signupPassword"])) {
+	if (isset ($_POST["Lastname"])) {
 		
 		// oli olemas, ehk keegi vajutas nuppu
 		//kas oli tühi
-		if (empty ($_POST["signupPassword"])) {
+		if (empty ($_POST["Lastname"])) {
 			
 			//oli tõesti tühi
-			$signupPasswordError = "See väli on kohustuslik";
-			
-		} else {
-			
-			//oli midagi, ei olnud tühi
-			
-			//kas pikkus vähemalt 8
-			if (strlen ($_POST["signupPassword"]) < 8 ) {
-				
-				$signupPasswordError = "Parool peab olema vähemalt 8 tm pikk";
+			$LastnameError = "See väli on kohustuslik";
 				
 			}
 			
 		}
 	
-	}
+	
 	
 ?>
 
@@ -89,10 +80,12 @@
 		
 		<form method="POST">
 			<label>Eesnimi</label><br>
-			<input name="Firstname" type="text"> <?php echo $firstnameError; ?>
+			<input name="Firstname" type="text"> <?php echo $FirstnameError; ?> 	
+
+			<br><br>
 			
 			<label>Perekonnanimi</label><br>
-			<input name="Lastname" type="text"> <?php echo $lastnameError; ?>
+			<input name="Lastname" type="text"> <?php echo $LastnameError; ?>
 
 			<br><br>
 			
@@ -101,31 +94,32 @@
 
 			<br><br>
 
-			<label>Mobiiltelefoni number</label>
+			<label>Mobiiltelefoni number</label><br>
 			<input type="number" name="mobilenumber">
 
 			<br><br>
 			
-			<label>Parool</label>
+			<label>Parool</label><br>
 			<input type="text" name="signupPassword">
 
 			<br><br>
 
-			<label>Parool uuesti</label>
+			<label>Parool uuesti</label><br>
 			<input type="text" name="signupPassword">
 			
 			<br><br>
 
-			<label>Sünnipäev</label>
+			<label>Sünnipäev</label><br>
 			<input type="date" name="birthday">
-			<input type="submit" value="Loo kasutaja">
 			
 			<br><br>
 
-			<label>Sugu</label>
+			<label>Sugu</label><br>
 			<input type="radio" name="gender" value="Mees" checked> Mees <br>
 			<input type="radio" name="gender" value="Naine"> Naine <br>
 			<input type="radio" name="gender" value="Muu"> Muu <br>
+
+			<input type="submit" value="Loo kasutaja">
 		
 		</form>
 
